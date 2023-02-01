@@ -32,19 +32,31 @@ export const getNote:RequestHandler = async(req, res, next)=>{
 
 interface createNoteBody{
     title?:string,
-    text?:string
+    text?:string,
+    note_status?:string,
+    note_code?:number,
+    random_note_id?:string
 }
 export const createNote: RequestHandler<unknown, unknown, createNoteBody, unknown> = async(req, res, next)=>{
     const title = req.body.title;
     const text = req.body.text;
+    const note_status = req.body.note_status
+    const note_code = req.body.note_code
+    const random_note_id = req.body.random_note_id
     try{
 
         if(!title){
             throw createHttpError(400, "Note must have a title")
         }
+        if(!note_status){
+            throw createHttpError(400, "Note must have status of DONE or NOTDONE")
+        }
         const newNote = await NoteModel.create({
             title: title,
-            text: text
+            text: text,
+            note_status:note_status,
+            note_code:note_code,
+            random_note_id:random_note_id
         });
 
         res.status(201).json(newNote)
