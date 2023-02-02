@@ -12,7 +12,7 @@ app.use(express.json())
 app.use("/api/notes", notesRoutes)
 
 app.use((req, res, next)=>{
-    next(createHttpError(404, "Endpoint not found"))
+    next(createHttpError(404, "🫠: Endpoint not found"))
 })
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

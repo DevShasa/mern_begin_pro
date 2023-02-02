@@ -8,12 +8,9 @@ mongoose.set('strictQuery', false);
 
 mongoose.connect(env.MONGO_CONNECTION_STRING)
     .then(()=>{
-        console.log("Mongoose connected")
+        console.log("😚: Mongoose connected")
         app.listen(port, ()=>{
-            console.log(`Server listening on port ${port}`)
+            console.log(`🥰: Server listening at port ${port}`)
         })
     })
     .catch(console.error)
-
-
-
