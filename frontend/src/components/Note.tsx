@@ -8,7 +8,8 @@ import {MdDelete} from "react-icons/md"
 interface NoteProps{
     note: NoteModel,
     className?: string,
-    onDeleteNoteClicked: (note:NoteModel) => void
+    onDeleteNoteClicked: (note:NoteModel) => void,
+    onNoteClicked : ()
 }
 
 
